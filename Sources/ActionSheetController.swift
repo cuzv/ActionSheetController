@@ -402,7 +402,7 @@ public final class ActionSheetController: UIViewController {
                 let boundingRect = (contentTitle as NSString).boundingRect(
                     with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude),
                     options: [.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine],
-                    attributes: [.font: titleLabel.font],
+                    attributes: [.font: titleLabel.font!],
                     context: nil
                 )
                 textHeight += boundingRect.size.height
@@ -540,13 +540,6 @@ private final class ActionSheetCell: UITableViewCell {
         contentLabel.text = action.title
         contentLabel.textColor = action.titleColor
     }
-}
-
-
-// MARK: -  Utils
-
-public func UIColorFrom(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 100) -> UIColor {
-    return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha / 100)
 }
 
 private func UIImageFrom(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage? {
