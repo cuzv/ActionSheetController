@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ModalTransitioning",
+        "repositoryURL": "https://github.com/cuzv/ModalTransitioning",
+        "state": {
+          "branch": "master",
+          "revision": "0f0e3ba9cf86e31e22f86dbc23d900b2516604bf",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
