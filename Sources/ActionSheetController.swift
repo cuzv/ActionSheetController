@@ -44,7 +44,7 @@ public final class ActionSheetController: UIViewController {
 
     private lazy var modalTransitioningDelegate = ModalTransitioningDelegate(delegate: self)
 
-    public init(title: String = "", titleColor: UIColor = UIColor.gray, cancelTitle: String = "取消", cancelTitleColor: UIColor = UIColor.black) {
+    public init(title: String = "", titleColor: UIColor = .gray, cancelTitle: String = "Cancel", cancelTitleColor: UIColor = .black) {
         contentTitle = title
         contentTitleColor = titleColor
         self.cancelTitle = cancelTitle
