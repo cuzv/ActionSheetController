@@ -428,25 +428,25 @@ public final class ActionSheetController: UIViewController {
 // MARK: - ModalTransitioning
 
 extension ActionSheetController: ModalTransitioning {
-    public func willPresentFrom(viewController: UIViewController) {
+    public func runPresentAnimation(completion: @escaping (Bool) -> Void) {
         view.removeConstraint(containerViewDisAppearedVerticalConstraint)
         view.addConstraint(containerViewAppearedVerticalConstraint)
         coverView.alpha = 0
-    }
 
-    public func presentingFrom(viewController: UIViewController) {
-        view.layoutIfNeeded()
-        coverView.alpha = 1
+        UIView.animate(withDuration: presentDuration, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            self.coverView.alpha = 1
+        }, completion: completion)
     }
-
-    public func willDismissTo(viewController: UIViewController) {
+    
+    public func runDismissAnimation(completion: @escaping (Bool) -> Void) {
         view.removeConstraint(containerViewAppearedVerticalConstraint)
         view.addConstraint(containerViewDisAppearedVerticalConstraint)
-    }
 
-    public func dismissingTo(viewController: UIViewController) {
-        view.layoutIfNeeded()
-        coverView.alpha = 0
+        UIView.animate(withDuration: dismissDuration, delay: 0, options: .curveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            self.coverView.alpha = 0
+        }, completion: completion)
     }
 }
 
